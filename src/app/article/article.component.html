@@ -1,0 +1,47 @@
+<div class="four wide column center aligned votes">
+    <div class="ui statistic">
+        <div class="value">
+            {{ article.votes }}
+        </div>
+        <div *ngIf=" article.votes > 1" class="label">
+            Likes
+        </div>
+        <div *ngIf=" article.votes == 1" class="label">
+            Like
+        </div>
+        <div *ngIf=" article.votes < 0" class="label">
+            Dislike
+        </div>
+    </div>
+</div>
+<div class="twelve wide column">
+    <a class="ui large header" href="{{ article.link }}">
+    {{ article.title }}
+    </a>
+    <div class="meta">({{ article.domain() }})</div>
+    <p> {{article.date | date:'medium' }}</p>
+    <p> {{article.category}}</p>
+    <ul class="ui big horizontal list voters">
+        <li class="item">
+            <a href (click)="voteUp()">
+                <i class="thumbs outline Up icon"></i> upvote
+            </a>
+        </li>
+        <li class="item">
+            <a href (click)="voteDown()">
+                <i class="thumbs outline Down icon"></i> downvote
+            </a>
+        </li>
+    </ul>
+    <div class="form-group">
+        <button class="btn btn-default" (click)="submit(article)">Отправить</button>
+    </div>
+    <div *ngIf="done">
+        <div>Details:</div>
+        <div>Title: {{receivedArticle.title}}</div>
+        <div>Link: {{receivedArticle.link}}</div>
+        <div>Posted: {{receivedArticle.date}}</div>
+        <div>Votes: {{receivedArticle.votes}}</div>
+    </div>
+
+</div>
