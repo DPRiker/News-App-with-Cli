@@ -1,21 +1,23 @@
- <form class="ui form  aligned segment">
-	<h3 class="ui header">Add News</h3>
-	<div class="field">
-		<label for="title">Title:</label>
-		<input name="title" #newtitle>
-	</div>
-	<div class="field">
-		<label for="link">Link:</label>
-		<input name="link" #newlink>
-	</div>
+<form class="ui form  aligned segment">
+
+    <h3 class="ui header">Add News</h3>
+    <div class="field">
+        <label for="title">Title:</label>
+        <input name="title" #newtitle>
+
+    </div>
+    <div class="field">
+        <label for="link">Link:</label>
+        <input name="link" #newlink>
+    </div>
     <categoryDropDown #newcategory></categoryDropDown>
-  <button (click)="addArticle(newtitle, newlink, newcategory)"
-         class="ui  positive button">
+    <p></p>
+    <button (click)="addArticle(newtitle, newlink, newcategory)" class="ui positive button">
  Submit link
  </button>
-</form>
 
+</form>
 <div class="ui grid posts">
     <app-article *ngFor="let article of sortedArticles()" [article]="article">
     </app-article>
- </div>
+</div>

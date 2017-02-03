@@ -24,21 +24,21 @@
     <ul class="ui big horizontal list voters">
         <li class="item">
             <a href (click)="voteUp()">
-                <i class="thumbs outline Up icon"></i> upvote
+                <i class="thumbs up icon"></i> upvote
             </a>
         </li>
         <li class="item">
             <a href (click)="voteDown()">
-                <i class="thumbs outline Down icon"></i> downvote
+                <i class="thumbs down icon"></i> downvote
             </a>
         </li>
     </ul>
     <div class="form-group">
-        <button class="btn btn-default" (click)="submit(article)">Отправить</button>
+        <button class="ui primary basic button" (click)="submit(article)">Edit</button>
     </div>
-    <div *ngIf="done">
-        <div>Details:</div>
-        <div>Title: {{receivedArticle.title}}</div>
+    <div *ngIf="done" >
+        <label>Details:</label>
+        <p >Title: {{receivedArticle.title}}</p>
         <div>Link: {{receivedArticle.link}}</div>
         <div>Posted: {{receivedArticle.date}}</div>
         <div>Votes: {{receivedArticle.votes}}</div>

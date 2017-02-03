@@ -18,15 +18,17 @@ export class ArticleComponent {
 	article: Article;
 	receivedArticle: Article[];
 	done: boolean = false;
+	IsEdit: boolean = false;
 	constructor(private httpService: HttpService) {
 
 	}
 
 	submit(article) {
 		this.httpService.getArticles().then(this.receivedArticle = article),
-			this.done = true;
+		this.done = true
 
 	}
+
 
 	voteUp(): boolean {
 		this.article.votes += 1;
@@ -37,5 +39,6 @@ export class ArticleComponent {
 		this.article.votes -= 1;
 		return false
 	}
+	 ngOnInit() {  } 
 }
 
